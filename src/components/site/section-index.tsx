@@ -1,0 +1,95 @@
+"use client";
+
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useScrollFrame } from "@/components/motion/scroll-linked";
+import { cn } from "@/lib/utils";
+
+type Item = { id: string; label: string };
+
+/**
+ * In-page index that highlights the section currently in view. On large screens a rail fills as the
+ * reader moves from the first section to the last. Plain anchor links without JS.
+ */
+export function SectionIndex({ items, label }: { items: Item[]; label: string }) {
+  const [active, setActive] = useState<string | null>(null);
+  const listRef = useRef<HTMLOListElement>(null);
+  const railRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const els = items.map((i) => document.getElementById(i.id)).filter((e): e is HTMLElement => Boolean(e));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-30% 0px -60% 0px" }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [items]);
+
+  const updateRail = useCallback(() => {
+    const rail = railRef.current;
+    const first = document.getElementById(items[0]?.id ?? "");
+    const last = document.getElementById(items[items.length - 1]?.id ?? "");
+    if (!rail || !first || !last || rail.offsetParent === null) return;
+    const vh = window.innerHeight;
+    const top = first.getBoundingClientRect().top;
+    const span = last.getBoundingClientRect().bottom - top - vh * 0.4;
+    const p = span > 0 ? Math.min(1, Math.max(0, (vh * 0.3 - top) / span)) : 1;
+    rail.style.transform = `scaleY(${p.toFixed(4)})`;
+  }, [items]);
+  useScrollFrame(updateRail);
+
+  // On narrow screens the index is a horizontal strip; keep the current section's link in view.
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list || !active || list.scrollWidth <= list.clientWidth) return;
+    const link = list.querySelector<HTMLElement>(`a[href="#${CSS.escape(active)}"]`);
+    if (!link) return;
+    const left = link.offsetLeft - (list.clientWidth - link.offsetWidth) / 2;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    list.scrollTo({ left, behavior: reduce ? "auto" : "smooth" });
+  }, [active]);
+
+  return (
+    <nav aria-label={label} className="relative">
+      <span
+        ref={railRef}
+        aria-hidden="true"
+        style={{ transform: "scaleY(0)" }}
+        className="pointer-events-none absolute top-0 left-0 z-10 hidden h-full w-0.5 origin-top bg-green lg:block"
+      />
+      <ol
+        ref={listRef}
+        data-lenis-prevent-horizontal
+        className="relative flex gap-1 overflow-x-auto lg:flex-col lg:gap-0 lg:overflow-visible"
+      >
+        {items.map((item, i) => {
+          const isActive = active === item.id;
+          return (
+            <li key={item.id} className="shrink-0">
+              <a
+                href={`#${item.id}`}
+                aria-current={isActive ? "true" : undefined}
+                className={cn(
+                  "flex min-h-11 items-center gap-3 border-b-2 border-transparent px-3 text-[0.9375rem] whitespace-nowrap text-muted-foreground transition-colors duration-300 hover:text-ink",
+                  "lg:border-b-0 lg:border-l-2 lg:border-stone lg:py-2 lg:pl-4",
+                  isActive && "border-green text-ink lg:border-stone"
+                )}
+              >
+                <span
+                  className={cn("font-serif text-sm text-plum transition-colors duration-300", isActive && "lg:text-green-800")}
+                  aria-hidden="true"
+                >
+                  0{i + 1}
+                </span>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+}

@@ -1,0 +1,705 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+  --font-heading: var(--font-serif);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-stone: var(--stone);
+  --color-ink: var(--ink);
+  --color-plum: var(--plum);
+  --color-plum-700: var(--plum-700);
+  --color-plum-900: var(--plum-900);
+  --color-plum-50: var(--plum-50);
+  --color-green: var(--green);
+  --color-green-800: var(--green-800);
+  --color-green-50: var(--green-50);
+  --color-brand-gray: var(--brand-gray);
+  --color-notice: var(--notice);
+  --color-notice-bg: var(--notice-bg);
+  --color-error: var(--error);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-2xl: 8px;
+  --radius-3xl: 12px;
+  --radius-4xl: 16px;
+}
+
+:root {
+  /* Brand (from the official logo SVG): green #8DC63F, plum #70456E, gray #808285 */
+  --paper: #f7f5f0;
+  --surface: #ffffff;
+  --stone: #e6e1d8;
+  --ink: #231a25;
+  --plum: #70456e;
+  --plum-700: #5b3759;
+  --plum-900: #2f1d31;
+  --plum-50: #f3edf2;
+  --green: #8dc63f;
+  --green-800: #3d5f12;
+  --green-50: #eef5e3;
+  --brand-gray: #808285;
+  --notice: #7a4b00;
+  --notice-bg: #fbf1dc;
+  --error: #b42318;
+
+  --container: 77.5rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section: clamp(4rem, 3rem + 5vw, 8rem);
+  --section-sm: clamp(3rem, 2rem + 3vw, 5rem);
+  --header-h: 4.5rem;
+  --focus: var(--plum);
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--plum);
+  --primary-foreground: #ffffff;
+  --secondary: var(--plum-50);
+  --secondary-foreground: var(--plum-900);
+  --muted: #efebe4;
+  --muted-foreground: #5d5761;
+  --accent: var(--plum-50);
+  --accent-foreground: var(--plum-900);
+  --destructive: var(--error);
+  --border: var(--stone);
+  --input: #8a838d;
+  --ring: var(--plum);
+  --radius: 4px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans;
+    scroll-padding-top: calc(var(--header-h) + 1.5rem);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-optical-sizing: auto;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+  p {
+    text-wrap: pretty;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  .on-dark {
+    --focus: var(--green);
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: var(--green);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: calc(var(--container) + var(--gutter) * 2);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+  .section {
+    padding-block: var(--section);
+  }
+  .section-sm {
+    padding-block: var(--section-sm);
+  }
+  .text-display {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+  .text-h1 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(2.25rem, 1.6rem + 2.8vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .text-h2 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: clamp(1.75rem, 1.3rem + 1.8vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .text-h3 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+    line-height: 1.25;
+  }
+  .text-lead {
+    font-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+    line-height: 1.55;
+  }
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+  .link-underline {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
+    transition: text-decoration-color 150ms ease, color 150ms ease;
+  }
+  .link-underline:hover {
+    text-decoration-color: currentColor;
+  }
+  .rule {
+    border-top: 1px solid var(--stone);
+  }
+  .on-dark .rule {
+    border-color: rgb(255 255 255 / 0.16);
+  }
+
+  /* Article body typography (content comes from the source CMS as HTML). */
+  .prose-article {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--ink);
+    max-width: 68ch;
+  }
+  .prose-article > * + * {
+    margin-top: 1.25em;
+  }
+  .prose-article h2,
+  .prose-article h3,
+  .prose-article h4 {
+    margin-top: 2em;
+    line-height: 1.2;
+  }
+  .prose-article h2 {
+    font-size: 1.6em;
+    font-weight: 500;
+  }
+  .prose-article h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+  .prose-article h4 {
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+  .prose-article a {
+    color: var(--plum);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+    overflow-wrap: anywhere;
+  }
+  .prose-article a:hover {
+    color: var(--plum-700);
+  }
+  .prose-article strong,
+  .prose-article b {
+    font-weight: 650;
+  }
+  .prose-article ul,
+  .prose-article ol {
+    padding-left: 1.4em;
+  }
+  .prose-article ul {
+    list-style: disc;
+  }
+  .prose-article ol {
+    list-style: decimal;
+  }
+  .prose-article li + li {
+    margin-top: 0.4em;
+  }
+  .prose-article li::marker {
+    color: var(--plum);
+  }
+  .prose-article blockquote {
+    border-left: 3px solid var(--green);
+    padding-left: 1.25em;
+    font-family: var(--font-serif);
+    font-size: 1.15em;
+    color: var(--ink);
+  }
+  .prose-article img {
+    max-width: 100%;
+    height: auto;
+    margin-block: 2em;
+    border-radius: 2px;
+  }
+  .prose-article table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95em;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose-article th,
+  .prose-article td {
+    border: 1px solid var(--stone);
+    padding: 0.5em 0.75em;
+    text-align: left;
+  }
+  .prose-article hr {
+    border-color: var(--stone);
+  }
+  .prose-article :where(p, li) {
+    overflow-wrap: break-word;
+  }
+}
+
+/*
+ * Section introductions: CSS scroll-driven, progressive, and skipped for reduced motion.
+ * `--i` staggers items that enter together (a row of cards); `--rise` sets the travel.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--i, 0) * var(--step, 10%)) entry calc(40% + var(--i, 0) * var(--step, 10%));
+    }
+    /* Items of different heights that should still rise in order share their list's timeline. */
+    .reveal-group {
+      view-timeline-name: --reveal-group;
+    }
+    .reveal-group > .reveal {
+      animation-timeline: --reveal-group;
+    }
+  }
+}
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    translate: 0 var(--rise, 16px);
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* Home hero. Copy rises, then the mark is constructed from its circles. */
+.ring-guides {
+  /* Resting opacity. With an 80% ink stroke this is about 8% on the page. */
+  opacity: 0.1;
+}
+.ring-wash {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .intro {
+    animation: intro-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--d, 0) * 90ms + 60ms);
+  }
+  .rings-intro .ring-guide {
+    /* A dash of exactly the circle length leaves a gap where the stroke starts. The extra length overlaps that join, and the matching gap keeps the circle hidden before it draws. */
+    stroke-dasharray: 1.02 1.02;
+    transform-box: fill-box;
+    transform-origin: center;
+    rotate: calc(var(--i, 0) * 90deg - 90deg);
+    animation: ring-draw 1.45s cubic-bezier(0.65, 0, 0.35, 1) both;
+    animation-delay: calc(var(--i, 0) * 110ms + 80ms);
+  }
+  .rings-intro .ring-intersect {
+    stroke-dasharray: 1.02 1.02;
+    animation: ring-draw 1.15s cubic-bezier(0.65, 0, 0.35, 1) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 1.05s);
+  }
+  .rings-intro .ring-guides {
+    animation: ring-recede 1s ease 3.55s both;
+  }
+  .rings-intro .ring-wash {
+    animation: ring-fade 0.7s ease 1.2s both;
+  }
+  .rings-intro .ring-fill,
+  .rings-intro .ring-cut {
+    animation: ring-fade 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .rings-intro .ring-leaf,
+  .rings-intro .ring-cut {
+    animation-delay: 2.15s;
+  }
+  .rings-intro .ring-gray {
+    animation-delay: 2.55s;
+  }
+  .rings-intro .ring-core {
+    animation-delay: 2.95s;
+  }
+}
+@keyframes ring-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ring-recede {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.1;
+  }
+}
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes ring-draw {
+  from {
+    stroke-dashoffset: 1.02;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* Header: lifts off the page once content scrolls beneath it (`data-scrolled` is set by <ScrollState>). */
+.site-header {
+  transition: box-shadow 0.3s ease;
+}
+html[data-scrolled] .site-header {
+  box-shadow: 0 10px 30px -22px rgb(35 26 37 / 0.45);
+}
+
+/*
+ * Formula map (<FormulaStory>). `--n0`…`--n4` (0 → 1) are written per scroll frame for the four terms
+ * and the result; each element reads its own as `--p`. Unset variables fall back to 1 (finished),
+ * which is what renders without JavaScript or with reduced motion.
+ */
+.fm-diagram {
+  max-width: 34rem;
+  container-type: inline-size;
+}
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  .fm-track {
+    height: 250vh;
+  }
+  .fm-stage {
+    position: sticky;
+    top: var(--header-h);
+    height: calc(100svh - var(--header-h));
+    padding-block: 2.5rem;
+  }
+  .fm-diagram {
+    max-width: min(100%, calc(100svh - var(--header-h) - 6rem));
+  }
+}
+.fm [data-part] {
+  transition: opacity 0.35s ease;
+}
+.fm-dial {
+  transform-origin: 300px 300px;
+  rotate: var(--dial, 0deg);
+}
+.fm-tick {
+  stroke: rgb(255 255 255 / 0.14);
+  stroke-width: 1;
+}
+.fm-tick-major {
+  stroke: rgb(141 198 63 / 0.7);
+  stroke-width: 1.5;
+}
+.fm-inner {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.1);
+  stroke-dasharray: 2 7;
+}
+.fm-ghost {
+  fill: none;
+  stroke: rgb(255 255 255 / 0.08);
+}
+.fm-line {
+  fill: none;
+  transition: stroke 0.3s ease, stroke-width 0.3s ease, opacity 0.35s ease;
+}
+.fm-draw {
+  stroke-dasharray: 1 1;
+  stroke-dashoffset: calc(1 - var(--p, 1));
+}
+.fm-arc {
+  stroke: rgb(255 255 255 / 0.5);
+  stroke-width: 1.25;
+}
+.fm-spoke {
+  stroke: rgb(141 198 63 / 0.8);
+  stroke-width: 1.5;
+}
+.fm-flow {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 0.04 0.96;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.fm-node,
+.fm-core {
+  position: absolute;
+  translate: -50% -50%;
+  border-radius: 999px;
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+.fm-node {
+  width: 9.4%;
+  aspect-ratio: 1;
+}
+/* Upcoming terms stay legible (≥ 55% white keeps 4.5:1 on plum-900); their details appear as they join. */
+.fm-node-body {
+  position: absolute;
+  inset: 0;
+  scale: calc(0.82 + 0.18 * var(--p, 1));
+}
+.fm-node-ring,
+.fm-term {
+  opacity: calc(0.55 + 0.45 * var(--p, 1));
+}
+.fm-node-ring {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  border: 1.5px solid color-mix(in oklab, var(--green) calc(var(--p, 1) * 100%), rgb(255 255 255 / 0.3));
+  background: var(--plum-900);
+  font-family: var(--font-serif);
+  font-size: clamp(0.6875rem, 2.4cqi, 0.9375rem);
+  transition: scale 0.4s cubic-bezier(0.34, 1.4, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.fm-node:hover .fm-node-ring,
+.fm-node:focus-visible .fm-node-ring,
+.fm-node[aria-pressed="true"] .fm-node-ring {
+  scale: 1.14;
+  background: color-mix(in oklab, var(--green) 22%, var(--plum-900));
+  box-shadow: 0 0 0 0.45rem rgb(141 198 63 / 0.12);
+}
+.fm-label {
+  position: absolute;
+  left: 50%;
+  translate: -50% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.15em 0.5em;
+  border-radius: 4px;
+  background: var(--plum-900);
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.25;
+  pointer-events: none;
+}
+.fm-term {
+  font-family: var(--font-serif);
+  font-size: clamp(0.9375rem, 3.6cqi, 1.3125rem);
+}
+.fm-detail {
+  display: none;
+  font-size: clamp(0.75rem, 2.3cqi, 0.875rem);
+  color: rgb(255 255 255 / 0.72);
+  opacity: var(--p, 1);
+}
+@container (min-width: 26rem) {
+  .fm-detail {
+    display: block;
+  }
+}
+
+.fm-core {
+  left: 50%;
+  top: 50%;
+  width: 22%;
+  aspect-ratio: 1;
+  border-radius: 16%;
+  display: grid;
+  place-items: center;
+  scale: calc(0.86 + 0.14 * var(--p, 1));
+  border: 1px solid rgb(255 255 255 / 0.22);
+  color: color-mix(in oklab, var(--ink) calc(var(--p, 1) * 100%), rgb(255 255 255 / 0.6));
+  transition: box-shadow 0.8s ease;
+}
+.fm-core-fill {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--green);
+  opacity: var(--p, 1);
+}
+.fm-core-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+  transition: scale 0.4s cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+.fm-core-term {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: clamp(0.9375rem, 3.9cqi, 1.5rem);
+}
+.fm-core-detail {
+  display: none;
+  margin-top: 0.2em;
+  font-size: clamp(0.6875rem, 2.1cqi, 0.8125rem);
+  font-weight: 600;
+  max-width: 9ch;
+  white-space: normal;
+}
+@container (min-width: 26rem) {
+  .fm-core-detail {
+    display: block;
+  }
+}
+.fm-core:hover .fm-core-text,
+.fm-core:focus-visible .fm-core-text,
+.fm-core[aria-pressed="true"] .fm-core-text {
+  scale: 1.06;
+}
+.fm[data-complete] .fm-core {
+  box-shadow: 0 0 0 0.6rem rgb(141 198 63 / 0.12);
+}
+.fm-halo {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid var(--green);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fm-row > * {
+  transition: color 0.5s ease, opacity 0.5s ease;
+}
+/* The list is the text equivalent of the map, so upcoming rows dim but never disappear. */
+.fm-row[data-pending] :is(.fm-row-term, .fm-row-detail) {
+  color: rgb(255 255 255 / 0.55);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fm[data-complete] .fm-flow {
+    opacity: 1;
+    animation: fm-flow 2.4s linear infinite;
+    animation-delay: calc(var(--i, 0) * -0.6s);
+  }
+  .fm[data-complete] .fm-halo {
+    animation: fm-halo 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .fm:not([data-inview]) .fm-flow {
+    animation-play-state: paused;
+  }
+}
+@keyframes fm-flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+@keyframes fm-halo {
+  from {
+    opacity: 0.8;
+    scale: 1;
+  }
+  to {
+    opacity: 0;
+    scale: 1.9;
+  }
+}
+
+/* Focus mode: hovering, tabbing to or tapping a term dims what it is not connected to. */
+.fm[data-focus="0"] [data-part]:not([data-part~="0"]),
+.fm[data-focus="1"] [data-part]:not([data-part~="1"]),
+.fm[data-focus="2"] [data-part]:not([data-part~="2"]),
+.fm[data-focus="3"] [data-part]:not([data-part~="3"]),
+.fm[data-focus="4"] [data-part]:not([data-part~="4"]) {
+  opacity: 0.2;
+}
+.fm[data-focus="0"] :is(.fm-arc[data-part~="0"], [data-part~="0"] > .fm-spoke),
+.fm[data-focus="1"] :is(.fm-arc[data-part~="1"], [data-part~="1"] > .fm-spoke),
+.fm[data-focus="2"] :is(.fm-arc[data-part~="2"], [data-part~="2"] > .fm-spoke),
+.fm[data-focus="3"] :is(.fm-arc[data-part~="3"], [data-part~="3"] > .fm-spoke),
+.fm[data-focus="4"] [data-part~="4"] > .fm-spoke {
+  stroke: var(--green);
+  stroke-width: 2.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
