@@ -1,12 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ArticleSummary } from "@/lib/insights";
+import { isArchivedArticle } from "@/lib/article-archive";
 import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 export function ArticleMeta({ article, className }: { article: ArticleSummary; className?: string }) {
   return (
     <p className={cn("flex flex-wrap items-center gap-x-2 text-sm text-muted-foreground", className)}>
+      {isArchivedArticle(article) && (
+        <>
+          <span className="font-semibold tracking-wide text-plum uppercase">Archive</span>
+          <span aria-hidden="true">·</span>
+        </>
+      )}
       <time dateTime={article.date}>{formatDate(article.date)}</time>
       {article.readMinutes && (
         <>

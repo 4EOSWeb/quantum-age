@@ -6,6 +6,8 @@ This register tracks every significant piece of source content: whether it was k
 
 "Verified from source" means the content was observed on quantum-age.com on 6 October 2026. It does **not** mean Quantum Age has confirmed it is current or accurate — that confirmation is part of the stakeholder review.
 
+**3 November 2026:** Quantum Age answered the review questions. [Section 13](#13-stakeholder-decisions-3-november-2026) is the record of those answers and overrides an earlier "requires stakeholder confirmation" note where the two conflict.
+
 Prototype source files referenced below live in `src/content/`.
 
 ---
@@ -166,3 +168,26 @@ None of these numbers are displayed in the prototype's marketing pages. They are
 | --- | --- | --- | --- |
 | 12.1 | `/beta` and nine subpages | Requires stakeholder confirmation | Different positioning, services, claims and testimonials. Not rebuilt. **Question:** is `/beta` a live proposal, an experiment, or something to remove? |
 | 12.2 | gohuntr.com services ("AI Velocity Websites", "B2B Lead Generation") | Requires stakeholder confirmation | **Question:** is this a partnership Quantum Age wants represented? |
+
+## 13. Stakeholder decisions, 3 November 2026
+
+Quantum Age answered by email. The prototype notes page (`/prototype-notes`) lists the same decisions.
+
+| Topic | Decision | What the prototype does |
+| --- | --- | --- |
+| Public email | `askQA@quantum-age.com` | Used everywhere. `info@` is not published. |
+| Headline statistics | Not answered. They asked which figures we meant. | Still withheld. The six figures, plus “hundreds of healthcare organizations”, are named on About and on `/prototype-notes`. |
+| Testimonials | Very old. New ones will be provided before launch. | Not shown on Home or References. Verbatim text kept in `withheldTestimonials`. |
+| Job titles | Do not show any. | No titles, including for CC Andrews. |
+| Becky Cook | Do not add to the team. | Not on the team page. |
+| Jaret Andrews | “Current student” is fine for now. | Bio unchanged. |
+| Solution pages | Pages exist; content was shared as “Hubspot files & images - 050626”. | Live Learn More URLs still 404 (rechecked 3 November 2026). The folder link did not come through, so no new pages were written. Old URLs still redirect to the matching `/solutions` section. |
+| `/beta` | Keep, but unpublish. | Text stays in `docs/source-snapshots/beta*.txt`, indexed from `docs/unpublished/beta.md`. No route and no nav link. |
+| Named clients and logos | Do not build a reference list from articles. No logos. Names inside articles are fine. They will send a reference list. | Article-derived “client stories” block removed. Organization types from the References page remain. |
+| Exclusivity claim | Keep. | Unchanged. |
+| “Collaborative” dictionary | Replace it with the “How we work together” panel from the team page. | Dictionary removed from Approach. The panel is on Approach and still on Team. |
+| Response time | No commitment. | Contact page states no timeframe. |
+| Older articles | Archive, including COVID-19 era guidance. | Articles dated through 31 December 2020 are labelled Archive, with a filter. |
+| Duplicate sponsorship article | Remove only if it is an exact duplicate; keep the newer one. | Compared. Same article, not a later sponsorship cycle. The 2018 body also has a duplicated fragment (“possible.f your sponsorships”). The 27 February 2019 article is kept. `/insights/the-4-keys-to-maximizing-your-sponsorship-expenditures` redirects to the `-1` URL. 114 articles remain. |
+| Logo, favicon, photography | Use the shared files, and only the purple-center logo, not the blue one. Drive: `https://drive.google.com/drive/folders/1H7a6Fnc6_WwzYsoKh3qvaG5OG_zjrUOA` | The folder requires a Google sign-in, so the files are not imported. The logo already in the repo has a purple center (`#70456E`). Favicon and share image are still generated from it. |
+| Privacy policy | Update for analytics and cookies, with an effective date. Defer to us for compliance. | Rewritten, effective 3 November 2026. Not reviewed by outside counsel. The prototype still loads no analytics. |

@@ -6,8 +6,8 @@ A complete, multi-page redesign prototype of [quantum-age.com](https://quantum-a
 
 ## What is in the prototype
 
-- 13 designed pages and all 115 articles from the current site's Insights section, built from a crawl of the live site on 6 October 2026.
-- Every service, team member, testimonial, article, contact detail and legal page found on the main site, preserved. Content that conflicts or could not be verified is held back and listed for confirmation, never guessed.
+- 13 designed pages and 114 Insights articles from the current site, built from a crawl on 6 October 2026. One duplicate sponsorship article was removed after Quantum Age confirmed it. Articles from 2013 through 2020 are labelled Archive.
+- Every service, team member, article, contact detail and legal page found on the main site, preserved. The current testimonials are held back until Quantum Age replaces them. Content that conflicts or could not be verified is held back and listed, never guessed.
 - A new design system (editorial typography, the logo's ring geometry, accessible plum-and-green palette), responsive from 320px to large desktop, and built to WCAG 2.2 AA.
 
 ## Technology
@@ -103,7 +103,7 @@ There are no API keys, secrets or third-party services.
 | `/team` | Nine team members with headshots and verified highlights |
 | `/references` | Three testimonials, client groups and client stories |
 | `/insights` | Article archive with search and topic filters |
-| `/insights/[slug]` | 115 articles, at the same slugs as the live site |
+| `/insights/[slug]` | 114 articles. The older duplicate sponsorship URL redirects to the 27 February 2019 article |
 | `/contact` | Contact details and the demo contact form (`?interest=<solution-id>` pre-selects a topic) |
 | `/privacy` | Privacy Policy, reproduced from the live site |
 | `/terms` | Terms of Use, reproduced from the live site |
@@ -174,26 +174,29 @@ Details: [`docs/prototype-boundaries.md`](docs/prototype-boundaries.md).
 - Some headings are verbatim from the live site and read as formulaic (for example three "Ready to…" closing headlines). They are kept until Quantum Age approves new wording.
 - Accessibility was checked with automated axe scans and manual keyboard testing; a review with screen readers and other assistive technology is still recommended before launch.
 
-## Outstanding verification items
+## Decisions from Quantum Age (3 November 2026)
 
-Held back or used provisionally until Quantum Age confirms:
+Applied in this prototype and listed on `/prototype-notes`:
 
-1. Public email address: `askQA@quantum-age.com` is used; `info@quantum-age.com` appears only in the live footer.
-2. Headline statistics, which conflict between About and References (not shown).
-3. Testimonial permissions and current titles.
-4. Team job titles and membership.
-5. Whether individual solution pages were planned (live links return 404).
-6. The `/beta` section, its services, metrics and testimonials (not rebuilt).
-7. Use of client names from articles as references or logos.
-8. The "only marketing firm in senior care…" positioning claim.
-9. The "Noun" → "adjective" correction on Approach.
-10. A response time for the Contact page.
-11. Older and duplicate articles.
-12. Official logo mark, favicon, share image and photography.
-13. Privacy policy currency (analytics, cookies, effective date).
-14. Social media profiles (none shown).
+- Public email is `askQA@quantum-age.com`.
+- No job titles. Becky Cook is not on the team. Jaret Andrews’ bio stays as published.
+- The three current testimonials are not shown; new ones are expected before launch.
+- No client logos, and no reference list built from article mentions.
+- The “only marketing firm…” line stays.
+- The Approach dictionary entry is replaced by the “How we work together” panel.
+- No response-time promise.
+- Articles from 2013 through 2020 are labelled Archive. The older duplicate sponsorship article redirects to the 2019 copy.
+- `/beta` is kept in `docs/source-snapshots` and is not published.
+- The privacy policy covers cookies and analytics and is effective 3 November 2026.
 
-The full list with context is in [`docs/content-verification.md`](docs/content-verification.md) and on the `/prototype-notes` page.
+Still open:
+
+1. Which headline statistics to publish, replace, or drop (the conflicting figures are named on `/prototype-notes`).
+2. The solution-page files in “Hubspot files & images - 050626” (the link did not come through; live Learn More URLs still return 404).
+3. The purple-center logo files in the shared Drive folder (the folder requires a Google sign-in; the logo already in the repo has a purple center, and a blue-center mark will not be used).
+4. Social media profiles (none shown).
+
+The full record is in [`docs/content-verification.md`](docs/content-verification.md) and on the `/prototype-notes` page.
 
 ## Documentation
 

@@ -43,8 +43,8 @@ Copy decisions in pass 1:
 
 - Headings were taken from the source wherever one existed ("Insights that drive growth", "Trusted by leading healthcare organizations", "Let's collaborate").
 - Where the redesign needed a new heading, it was written from facts on the page rather than generic phrasing. Examples: "Six solution areas, one collaborative team" (six solutions; the company calls itself a collaborative), "Decades in healthcare, senior living and marketing" (team bios), "Writing on senior care, aging services and B2B marketing" (article topics).
-- No adjectives were added to company claims. "The only marketing firm in senior care steeped in both consumer and business-to-business" is the company's own line and is flagged for confirmation rather than strengthened or removed.
-- The dictionary entry on Approach keeps the source text; only the part of speech label ("Noun" → "adjective") was corrected, and that correction is listed as a stakeholder question.
+- No adjectives were added to company claims. "The only marketing firm in senior care steeped in both consumer and business-to-business" is the company's own line. Quantum Age later confirmed it should stay.
+- Quantum Age later asked to replace the Approach dictionary entry with the “How we work together” panel. That panel is what the Approach page shows now.
 
 ## Pass 2: after build, reviewed in the browser
 
@@ -55,7 +55,7 @@ Every route was captured at 390, 768 and 1280px (plus 320, 844 landscape and 192
 | Finding | Where | Change |
 | --- | --- | --- |
 | **Every internal hero was the same template**: eyebrow, large headline, lead, empty right half | Team, Insights, References, and others | Team hero now carries a jump list of all nine people (useful on a long page). Insights hero shows archive facts computed from the data (115 articles, 2013–2026, 20 topics). The `aside` slot is only used where real content earns it; the remaining heroes stay simple on purpose. |
-| **Proof buried below a category list** | References | Testimonials moved directly under the hero; client groups follow. The page's purpose is evidence, so evidence comes first. |
+| **Proof buried below a category list** | References | Testimonials were moved directly under the hero. Quantum Age later said those quotes are too old to keep showing, so the page now leads with the three organization types and does not show the quotes. |
 | **Scaffolded-but-unused UI** | Accordion, Alert, Select, Separator, Sonner toasts, Tabs, Tooltip | Removed from the codebase, along with the `sonner` and `next-themes` packages. The design doc listed some of these as in use; it was corrected to match what ships. |
 | **Section index broke the page on phones and tablets** | Solutions, Insights | The scrolling strips widened the whole page (up to 2,225px of horizontal overflow). Fixed with `min-w-0` on the grid items; strips now scroll inside the page. |
 | **Contact details marked up as an invalid definition list** | Contact | Icons moved inside each `<dt>`, so the list is valid for screen readers; visual layout unchanged. |

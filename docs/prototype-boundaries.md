@@ -14,14 +14,14 @@ During this project nothing was written to, deployed over, logged into, or submi
 | Result states | After submitting | The confirmation says "Nothing was sent. This is a prototype…"; the error state says it is simulated |
 | Prototype controls | Inside the form, dashed amber box labelled "Prototype controls" | Checkbox to preview the error state |
 | Held-content note | About page | "Prototype note: statistics held for confirmation" |
-| Legal pages | Privacy, Terms | Notice that the text is reproduced from the live site and is not new legal language |
+| Legal pages | Privacy, Terms | Privacy was updated 3 November 2026 (cookies, analytics, effective date) and says it has not been reviewed by counsel. Terms are still the live-site text. |
 | Reviewer page | `/prototype-notes` | Lists demo features, held content and open questions |
 
 ## Fully implemented
 
 These work completely within the prototype, using local content:
 
-- All 13 page routes and the 115 article pages (see README route list), statically generated.
+- All 13 page routes and 114 article pages (115 were crawled; the older duplicate sponsorship article now redirects to the 2019 copy), statically generated.
 - Header navigation with current-page indication, mobile navigation sheet (focus trapped, closes on Escape and returns focus), skip link, footer navigation.
 - Solutions in-page index that highlights the section in view (plain anchor links when JavaScript is off).
 - Insights archive search (title, summary and tags) and topic filtering over the 115 local articles, with result count announcements, an empty state and a reset action.
@@ -48,7 +48,7 @@ Elsewhere:
 | --- | --- | --- |
 | Contact form | Validates fields inline and on submit, shows an error summary that links to each field, a sending state, a success confirmation, and (via the prototype checkbox) a failure state. Pre-selects a topic when opened from a solution link (`/contact?interest=<id>`). | Make any network request, store anything, send email, create a CRM record or reach Quantum Age. |
 | Insights search | Real filtering over the copy of the articles bundled with the prototype. | Search a live index or CMS. Articles published on the live site after 6 October 2026 will not appear. |
-| Article content | A snapshot of all 115 public articles, with images optimized and stored locally. | Stay in sync with the live site, or support editing. |
+| Article content | A snapshot of the public articles, with images optimized and stored locally. Pieces from 2013 through 2020 are labelled Archive. | Stay in sync with the live site, or support editing. |
 
 ## Not included, and not implied
 
@@ -68,17 +68,14 @@ Recorded in full in `content-verification.md`:
 - Three article images: two hot-linked HubSpot stock images return 403/404; one article has `src="none"`.
 - `sitemap.xml` and `robots.txt`: not present.
 
-## Requires stakeholder confirmation
+## Still open after the 3 November 2026 replies
 
-The prototype either holds these back or uses the most widely published version until Quantum Age confirms. The full list is on `/prototype-notes` and in `content-verification.md`:
+Recorded on `/prototype-notes` and in `content-verification.md` section 13. Applied decisions (email, no job titles, testimonials held, archive labels, unpublished beta, privacy update, and the rest) are not repeated here.
 
-- Which public email address to use (`askQA@` is used; `info@` appears only in the live footer).
-- Headline statistics, which conflict between About and References, and "hundreds of healthcare organizations".
-- Testimonial permissions and current titles.
-- Team titles and membership (Becky Cook; Jaret Andrews' bio).
-- The `/beta` section and its content.
-- Whether older articles should be kept, labelled as archive or retired; the duplicate sponsorship article.
-- Privacy policy currency (no effective date; does not mention analytics or cookies).
+- Headline statistics, which conflict between About and References, and "hundreds of healthcare organizations". Quantum Age asked which figures we meant; they are now listed and still not shown.
+- The individual solution-page files (“Hubspot files & images - 050626”). The link did not come through, and the live Learn More URLs still return 404.
+- The purple-center logo, favicon, and any photography in the shared Drive folder. That folder requires a Google sign-in, so it is not imported. The logo already in the prototype has a purple center.
+- Social profile URLs. Not part of the reply; none are shown.
 
 ## What production would need
 

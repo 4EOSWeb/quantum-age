@@ -5,8 +5,11 @@ export type Testimonial = {
   organization: string;
 };
 
-/** Quotations and attributions are verbatim from quantum-age.com/references. Do not edit. */
-export const testimonials: Testimonial[] = [
+/**
+ * Quotations and attributions are verbatim from quantum-age.com/references.
+ * Quantum Age said these are very old and will supply new ones before launch. Do not render them.
+ */
+export const withheldTestimonials: Testimonial[] = [
   {
     quote:
       "Quantum Age brings deep expertise and strategic thinking to every engagement. Their collaborative approach made all the difference.",
@@ -43,12 +46,4 @@ export const clientGroups = [
     name: "Industry Innovators",
     description: "Technology companies and startups partner with us to enter the market.",
   },
-];
-
-/** Articles on the source site that describe work with named clients. */
-export const clientStorySlugs = [
-  "saiva-healthcare-featured-in-mcknights",
-  "caradays-positive-culture-showcased-in-provider",
-  "quantum-age-collaborative-and-client-in-the-news",
-  "helping-clients-of-dementia-care-specialists-optimize-marketing",
 ];

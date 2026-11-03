@@ -10,7 +10,7 @@ Based on the verified inventory in `source-inventory.md`. The goal is to make ev
 | **Promote** Team and Insights into the main navigation | They hold the most original and credible content (nine real people, 115 articles) but are footer-only today. |
 | **One Solutions page, not six detail pages** | The six detail URLs are 404 on the live site and there is no extra content to fill them. Six thin pages would be padding. The old URLs redirect to working anchors. |
 | **Keep About and Team separate** | Team has nine detailed profiles; folding it into About would bury it. About links prominently to Team. |
-| **Do not rebuild `/beta`** | Its claims, services and testimonials conflict with the main site and are unverified. Documented on `/prototype-notes`. |
+| **Do not publish `/beta`** | Quantum Age asked to keep the content and take it off the public site. Snapshots stay in `docs/source-snapshots`; there is no route. |
 | **Add `/prototype-notes`** | Presentation-only page listing demo functionality and open questions, so reviewers can see what is real. Not linked from main nav; linked from the prototype banner and footer. |
 | **No "Industries" page** | The source lists four focus areas in one short list; that does not support a page. Shown on About and Home. |
 | **No search page / no newsletter** | Neither exists on the source (insight search is local to the listing). |
@@ -26,7 +26,7 @@ Based on the verified inventory in `source-inventory.md`. The goal is to make ev
 ├── /team                       Team
 ├── /references                 References
 ├── /insights                   Insights listing (search + tag filter)
-│     └── /insights/[slug]      115 articles (source slugs preserved)
+│     └── /insights/[slug]      114 articles (source slugs preserved; older sponsorship duplicate redirects)
 ├── /contact                    Contact (demo form)
 ├── /privacy                    Privacy Policy
 ├── /terms                      Terms of Use
@@ -64,7 +64,7 @@ Redirects (fix live 404s)
 - **Purpose:** Explain who Quantum Age is and route visitors to the right next page.
 - **Audience:** Marketing, growth and executive leaders at senior living operators, healthcare organizations, health-tech companies and wellness/longevity providers (as listed on the source).
 - **Primary question:** "Is this the right partner for a healthcare or senior-care organization like mine?"
-- **Sections:** (1) Hero — tagline, positioning line, two CTAs. (2) Who we are + who we serve — About statement and the four focus areas. (3) Six solutions as an indexed list linking to anchors. (4) How we work — the credibility paragraph plus the three benefits. (5) The collaborative formula (You + Team + Market + Opportunity = Success). (6) The people — team portraits linking to `/team`. (7) Client testimonials (three, verbatim). (8) Latest thinking — three featured insights. (9) Contact CTA.
+- **Sections:** (1) Hero — tagline, positioning line, two CTAs. (2) Who we are + who we serve — About statement and the four focus areas. (3) Six solutions as an indexed list linking to anchors. (4) How we work — the credibility paragraph plus the three benefits. (5) The collaborative formula (You + Team + Market + Opportunity = Success). (6) The people — team portraits linking to `/team`. (7) Who we work with — the three organization types, not testimonials. (8) Latest thinking — three featured insights. (9) Contact CTA.
 - **Primary CTA:** Start a conversation → `/contact`. **Secondary:** Explore solutions → `/solutions`.
 - **Source pages:** Home, About, Solutions, Team, References, Insights.
 - **Functionality:** None beyond links.
@@ -102,7 +102,7 @@ Redirects (fix live 404s)
 ### Team `/team`
 - **Purpose:** Introduce the nine people, with their own words.
 - **Primary question:** "Who would we actually work with?"
-- **Sections:** Hero + experience statement; nine profiles (portrait, name, role where verified, bullets); "Collaborative by nature"; CTA.
+- **Sections:** Hero + experience statement; nine profiles (portrait, name, bullets; no job titles); "Collaborative by nature"; CTA.
 - **Primary CTA:** Start a conversation. **Secondary:** Read our insights.
 - **Mobile:** Two-column portraits at ≥560px, one column below; bullets remain readable at 16px.
 - **Accessibility:** Each profile is an `<article>` with an H2 name; portraits have the person's name as alt text.
@@ -110,7 +110,7 @@ Redirects (fix live 404s)
 ### References `/references`
 - **Purpose:** Show the available evidence: who Quantum Age serves and what clients have said.
 - **Primary question:** "Do organizations like ours trust them?"
-- **Sections:** Hero; who we work with (three client groups); testimonials in full; pointer to client stories within Insights (articles that mention clients by name); CTA.
+- **Sections:** Hero; who we work with (three client groups); note that named references and new testimonials are still to come; CTA. No testimonials, no logos, and no client list pulled from articles.
 - **Primary CTA:** Start a conversation. **Secondary:** Browse insights.
 - **Note:** No logos or statistics are shown (none verified).
 
@@ -135,8 +135,8 @@ Redirects (fix live 404s)
 - **Accessibility:** Visible labels, `aria-describedby` for hints and errors, error summary receives focus on submit.
 
 ### Privacy `/privacy` and Terms `/terms`
-- **Purpose:** Preserve the published legal text verbatim.
-- **Sections:** Title; verbatim text; note that the text is reproduced from the live site and has not been reviewed.
+- **Purpose:** Terms stay verbatim. Privacy is the 3 November 2026 version (cookies, analytics, effective date), not yet reviewed by counsel.
+- **Sections:** Title; policy text; reviewer note.
 - **Primary CTA:** Email askQA@quantum-age.com (as in source).
 
 ### Prototype notes `/prototype-notes`

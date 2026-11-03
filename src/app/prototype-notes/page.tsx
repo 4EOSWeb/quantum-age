@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Notice, PageHero, SectionHeading } from "@/components/site/blocks";
-import { demoFeatures, heldContent, openQuestions } from "@/content/prototype";
+import { decisions, demoFeatures, heldContent, openQuestions } from "@/content/prototype";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ const routes = [
   ["/about", "About"],
   ["/team", "Team"],
   ["/references", "References"],
-  ["/insights", "Insights (115 articles)"],
+  ["/insights", "Insights (114 articles)"],
   ["/contact", "Contact (demo form)"],
   ["/privacy", "Privacy Policy"],
   ["/terms", "Terms of Use"],
@@ -44,10 +44,10 @@ export default function PrototypeNotesPage() {
         <div className="container-page grid gap-10 lg:grid-cols-12">
           <SectionHeading id="principles-heading" eyebrow="Ground rules" title="Nothing added that the company has not said" className="lg:col-span-5" />
           <ul className="space-y-4 text-lead text-ink/85 lg:col-span-7">
-            <li>Every service, team member, testimonial and article comes from the current site.</li>
-            <li>Testimonials are reproduced word for word with their original attribution.</li>
-            <li>No statistics, client logos, awards, photography or case studies were invented.</li>
-            <li>Where the live site contradicts itself, the content is held back and listed below.</li>
+            <li>Services, team members, and articles come from the current site. Nothing was invented to fill a gap.</li>
+            <li>The three testimonials on the current site are not shown. Quantum Age will supply new ones before launch.</li>
+            <li>No statistics, client logos, job titles, awards, or photography were added.</li>
+            <li>Decisions from Quantum Age on 3 November 2026 are recorded below. What is still open is listed after that.</li>
           </ul>
         </div>
       </section>
@@ -85,9 +85,23 @@ export default function PrototypeNotesPage() {
         </div>
       </section>
 
+      <section id="decisions" className="section-sm border-t border-stone" aria-labelledby="decisions-heading">
+        <div className="container-page grid gap-10 lg:grid-cols-12">
+          <SectionHeading id="decisions-heading" eyebrow="3 November 2026" title="What Quantum Age decided" className="lg:col-span-5" />
+          <dl className="border-t border-stone lg:col-span-7">
+            {decisions.map((d) => (
+              <div key={d.item} className="border-b border-stone py-5">
+                <dt className="text-h3">{d.item}</dt>
+                <dd className="mt-2 text-ink/80">{d.detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       <section id="questions" className="section-sm border-t border-stone" aria-labelledby="questions-heading">
         <div className="container-page grid gap-10 lg:grid-cols-12">
-          <SectionHeading id="questions-heading" eyebrow="For Quantum Age" title="Questions we need answered" className="lg:col-span-5" />
+          <SectionHeading id="questions-heading" eyebrow="Still open" title="What we still need" className="lg:col-span-5" />
           <ol className="list-decimal space-y-4 pl-6 text-ink marker:font-serif marker:text-plum lg:col-span-7">
             {openQuestions.map((q) => (
               <li key={q} className="pl-2">

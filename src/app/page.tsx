@@ -6,20 +6,18 @@ import { Rings } from "@/components/brand/rings";
 import { CtaBand, SectionHeading, TextLink } from "@/components/site/blocks";
 import { Parallax } from "@/components/motion/scroll-linked";
 import { FormulaStory } from "@/components/site/formula-story";
-import { TestimonialQuote } from "@/components/site/testimonial";
 import { Portrait } from "@/components/site/portrait";
 import { ArticleFeature } from "@/components/site/article-item";
 import { site } from "@/content/site";
 import { about, benefits, formula } from "@/content/company";
 import { solutions } from "@/content/solutions";
 import { people, teamIntro } from "@/content/people";
-import { testimonials } from "@/content/references";
+import { clientGroups } from "@/content/references";
 import { getArchiveRange, getFeaturedArticles } from "@/lib/insights";
 
 export default function HomePage() {
   const featured = getFeaturedArticles();
   const archive = getArchiveRange();
-  const [lead, ...more] = testimonials;
   const taglineLines = site.tagline.split(/(?<=\.)\s+/);
   const stagger = (i: number, step?: string) => ({ "--i": i, ...(step && { "--step": step }) }) as React.CSSProperties;
 
@@ -176,20 +174,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section className="section bg-plum-50" aria-labelledby="clients-heading">
         <div className="container-page">
-          <SectionHeading id="clients-heading" eyebrow="References" title="What our clients say" />
-          <div className="mt-12 grid gap-12 lg:grid-cols-12">
-            <TestimonialQuote testimonial={lead} size="lg" className="reveal lg:col-span-7" />
-            <div className="grid gap-12 lg:col-span-5">
-              {more.map((t, i) => (
-                <TestimonialQuote key={t.name} testimonial={t} className="reveal" style={stagger(i + 1)} />
-              ))}
-            </div>
-          </div>
+          <SectionHeading id="clients-heading" eyebrow="References" title="Who we work with" />
+          <ul className="mt-12 grid border-t border-ink/15 md:grid-cols-3">
+            {clientGroups.map((g, i) => (
+              <li
+                key={g.name}
+                className={`reveal border-b border-ink/15 py-8 md:border-b-0 md:px-8 md:first:pl-0 ${i > 0 ? "md:border-l" : ""}`}
+                style={stagger(i)}
+              >
+                <h3 className="text-h3">{g.name}</h3>
+                <p className="mt-3 text-ink/80">{g.description}</p>
+              </li>
+            ))}
+          </ul>
           <TextLink href="/references" className="mt-10">
-            Who we work with
+            More about who we serve
           </TextLink>
         </div>
       </section>

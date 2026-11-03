@@ -10,7 +10,7 @@ A walkthrough for presenting the redesign prototype to Quantum Age Collaborative
 
 ## Project overview (one minute)
 
-- A complete, separate redesign prototype of quantum-age.com: 13 pages plus all 115 articles from the current site.
+- A complete, separate redesign prototype of quantum-age.com: 13 pages plus 114 articles from the current site (one duplicate removed).
 - Built from a crawl of the live site on 6 October 2026. Every service, team member, testimonial, article, contact detail and legal page found on the main site is preserved.
 - Nothing was invented. Where the current site contradicts itself (statistics, email addresses), the prototype holds the item back and asks.
 - Nothing touches the live site. The contact form is a demonstration and says so.
@@ -42,7 +42,7 @@ Home
 ├── Team
 ├── References
 ├── Insights
-│   └── 115 articles (same URLs as today)
+│   └── 114 articles (older sponsorship duplicate redirects)
 ├── Contact
 ├── Privacy Policy · Terms of Use
 └── Prototype notes (for this review only)
@@ -56,15 +56,15 @@ The header shows Solutions, Approach, About, Team, References and Insights, with
 - **Editorial, not template.** A serif for headings (Source Serif 4) and a clean sans for reading (Figtree), a 12-column grid, heading-beside-text compositions, and rules instead of boxes.
 - **Brand colors kept, roles swapped.** Plum carries buttons and links because it is legible; green stays as the signature accent on dark plum and in the mark. The logo file is used unchanged.
 - **No stock photography.** The only photographs are the real team headshots and the articles' own images. The hero is typographic.
-- **Evidence shown plainly.** All three testimonials are visible at once with full attribution; no carousel.
+- **Evidence shown plainly.** Organization types are listed without logos or a carousel. The three old testimonials are not shown; Quantum Age will replace them before launch.
 
 ## Suggested walkthrough
 
-1. **Home, desktop.** Read the hero line, then scroll: who Quantum Age works with, the six solutions, the formula, the nine people, the testimonials, the latest writing, the closing contact band.
+1. **Home, desktop.** Read the hero line, then scroll: who Quantum Age works with, the six solutions, the formula, the nine people, the organization types, the latest writing, the closing contact band.
 2. **Solutions.** Click a solution in the left index; the index follows the section in view. Point out the "Talk to us about…" link, which opens Contact with that topic pre-selected.
-3. **Approach.** The dictionary definition, the formula and the three levels.
+3. **Approach.** The “How we work together” panel (moved here from the team page, in place of the dictionary entry), the formula and the three levels.
 4. **Team.** The jump list in the hero; nine profiles with the verified bullets.
-5. **References.** Testimonials first, then client groups, then client stories from the archive.
+5. **References.** The three organization types. No testimonials, logos, or clients pulled from articles.
 6. **Insights.** Search for "SEO", pick a topic, then search for something with no results to show the empty state. Open an article: breadcrumbs, metadata, related articles.
 7. **Contact.** Press Send with the form empty to show the error summary and inline errors. Fill it in to show the confirmation. Tick "Simulate a delivery error" to show the failure state.
 8. **Mobile.** Open the menu, move through it with Tab, close it with Escape. Show Solutions' scrolling index and the Insights filters.
@@ -101,8 +101,8 @@ Built and checked against WCAG 2.2 AA: landmarks, one H1 per page and ordered he
 - All six solutions and all 24 capabilities, word for word.
 - The approach: definition, formula and all three levels.
 - All nine team members with their headshots and bullets.
-- All three testimonials, word for word, with the exact attribution.
-- All 115 articles, with their dates, authors, reading times, tags and images.
+- The three organization types from the References page. The old testimonials are kept in the project files and are not shown.
+- 114 articles, with their dates, authors, reading times, tags and images. Articles through 2020 are labelled Archive.
 - Phone, email, mailing address and "Serving clients internationally".
 - Privacy Policy and Terms of Use, word for word.
 
@@ -116,24 +116,27 @@ The full register, including every refinement, is in `content-verification.md`.
 
 Full detail: `prototype-boundaries.md`.
 
-## Items requiring company feedback
+## What Quantum Age already decided
 
-These are also listed on `/prototype-notes`:
+Answered 3 November 2026 and applied in the prototype. Do not ask these again. The detail is on `/prototype-notes`.
 
-1. Which email address to publish: askQA@quantum-age.com or info@quantum-age.com.
-2. Which headline statistics, if any, are accurate and current.
-3. Permission and current titles for the three testimonial authors.
-4. Job titles for each team member, and CC Andrews' preferred title.
-5. Whether Becky Cook should appear on Team, and whether Jaret Andrews' bio is current.
-6. Whether individual solution pages were planned.
-7. The status of the `/beta` section.
-8. Whether clients named in articles may be shown as references or with logos.
-9. Whether to keep the line "the only marketing firm in senior care steeped in both consumer and business-to-business".
-10. Approval to correct "Noun" to "adjective" in the Approach definition.
-11. Any response time to state on the Contact page.
-12. What to do with older articles, and the duplicate sponsorship article.
-13. Official photography, a standalone logo mark, favicon or share image.
-14. Whether the privacy policy should be updated for analytics and cookies, with an effective date.
+- Public email: askQA@quantum-age.com.
+- No job titles. Becky Cook is not added. Jaret Andrews’ bio stays for now.
+- Current testimonials come off the site; new ones arrive before launch.
+- No logos, and no reference list taken from articles.
+- Keep the “only marketing firm…” line.
+- Replace the Approach dictionary with the team page’s “How we work together” panel.
+- No response-time promise.
+- Label 2013–2020 articles, including COVID-19 era guidance, as Archive. The sponsorship duplicate was the same article; the 2019 copy is kept.
+- Keep `/beta` unpublished.
+- Privacy policy updated for cookies and analytics, effective 3 November 2026.
+- Use the purple-center logo files, never the blue-center version.
+
+## Still to ask
+
+1. For each named headline statistic: publish, replace, or drop.
+2. Please resend “Hubspot files & images - 050626” so the individual solution pages can be built from those files.
+3. The Drive folder of logos and the favicon could not be downloaded (Google sign-in). Confirm the purple-center logo already in the prototype, or send the files another way.
 
 ## Suggested stakeholder-review questions
 

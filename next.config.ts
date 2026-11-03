@@ -37,6 +37,12 @@ const nextConfig: NextConfig = {
       { source: "/services", destination: "/solutions", permanent: false },
       { source: "/blog/:slug", destination: "/insights/:slug", permanent: false },
       { source: "/blog", destination: "/insights", permanent: false },
+      // Older copy of the same sponsorship article. The 27 February 2019 version is kept.
+      {
+        source: "/insights/the-4-keys-to-maximizing-your-sponsorship-expenditures",
+        destination: "/insights/the-4-keys-to-maximizing-your-sponsorship-expenditures-1",
+        permanent: true,
+      },
     ];
   },
 };

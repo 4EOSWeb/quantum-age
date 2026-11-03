@@ -1,9 +1,6 @@
 export type Person = {
   slug: string;
   name: string;
-  /** Only set where the role is stated in source content. */
-  role?: string;
-  roleSource?: string;
   image: string;
   highlights: string[];
 };
@@ -18,13 +15,14 @@ export const teamIntro = {
   ],
 };
 
-/** Order and bullet text verbatim from quantum-age.com/team. */
+/**
+ * Order and bullet text verbatim from quantum-age.com/team.
+ * Quantum Age asked that no job titles be shown.
+ */
 export const people: Person[] = [
   {
     slug: "cc-andrews",
     name: "CC Andrews",
-    role: "President",
-    roleSource: "/insights/quantum-age-president-elected-to-advancing-excellence-board",
     image: "/team/cc-andrews.webp",
     highlights: [
       "30 years in marketing and sales",

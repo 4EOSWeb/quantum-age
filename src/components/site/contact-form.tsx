@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { AlertCircleIcon, CheckCircle2Icon, Loader2Icon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -241,6 +242,14 @@ function FormBody({ initialInterest }: { initialInterest: string }) {
         />
         <FieldError id={id("message-error")} message={errors.message} />
       </div>
+
+      <p className="text-sm text-muted-foreground">
+        How we handle information you send is described in our{" "}
+        <Link href="/privacy" className="font-semibold text-plum underline">
+          Privacy Policy
+        </Link>
+        .
+      </p>
 
       <fieldset className="border border-dashed border-notice/50 bg-notice-bg/60 p-4">
         <legend className="px-1 text-sm font-semibold text-notice">Prototype controls</legend>

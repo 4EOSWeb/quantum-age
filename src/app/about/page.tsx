@@ -89,13 +89,19 @@ export default function AboutPage() {
                 <Link href="/team">Meet our team</Link>
               </Button>
             </div>
-            <Notice tone="info" title="Prototype note: statistics held for confirmation" className="mt-10 max-w-[56ch]">
-              The current About and References pages show different headline figures (for example 30+ vs 20+ years).
-              They are not shown here until Quantum Age confirms them.{" "}
-              <Link href="/prototype-notes#held-content" className="font-semibold underline">
-                See prototype notes
-              </Link>
-              .
+            <Notice tone="info" title="These headline figures are not shown yet" className="mt-10 max-w-[56ch]">
+              <p>The current site publishes two sets that do not match. Quantum Age asked us to name them before any go back up:</p>
+              <ul className="mt-2 list-disc space-y-1 pl-5">
+                <li>About: 30+ years average experience; 10+ expert collaborators; 100% healthcare focused.</li>
+                <li>References: 20+ years of experience; 200+ clients served; 100% senior care focused.</li>
+              </ul>
+              <p className="mt-2">
+                References also says the team has worked with hundreds of healthcare organizations. The team page lists 9 people,
+                and the bios cite about 10 to 35+ years.{" "}
+                <Link href="/prototype-notes#questions" className="font-semibold underline">
+                  Which of these should we publish?
+                </Link>
+              </p>
             </Notice>
           </div>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-8 lg:col-span-5 lg:col-start-8">

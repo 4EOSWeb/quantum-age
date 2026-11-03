@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaBand, PageHero, SectionHeading, TextLink } from "@/components/site/blocks";
 import { approach, formula } from "@/content/company";
+import { teamIntro } from "@/content/people";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -10,29 +11,28 @@ export const metadata: Metadata = {
 };
 
 export default function ApproachPage() {
-  const { definition } = approach;
   return (
     <>
       <PageHero eyebrow="Approach" title={approach.heroLead} lead={<p>{approach.partnership[1]}</p>} />
 
-      {/* Definition */}
-      <section className="section-sm" aria-labelledby="definition-heading">
+      <section className="section-sm border-b border-stone bg-[#efebe4]" aria-labelledby="together-heading">
         <div className="container-page grid gap-10 lg:grid-cols-12">
-          <h2 id="definition-heading" className="sr-only">
-            What collaborative means to us
-          </h2>
-          <div className="reveal border-l-4 border-green pl-6 md:pl-10 lg:col-span-9 lg:col-start-2">
-            <p className="font-serif text-[clamp(2.5rem,1.8rem+3vw,4.5rem)] leading-none text-ink">{definition.word}</p>
-            <p className="mt-4 text-muted-foreground">
-              <span className="font-mono text-[0.95rem]">[ {definition.pronunciation} ]</span>
-              <span className="mx-3" aria-hidden="true">
-                ·
-              </span>
-              <em>{definition.partOfSpeech}</em>
-            </p>
-            <blockquote className="mt-6 max-w-[40ch] font-serif text-[clamp(1.375rem,1.1rem+1vw,2rem)] leading-snug text-ink">
-              <p>“{definition.meaning}”</p>
-            </blockquote>
+          <SectionHeading
+            id="together-heading"
+            eyebrow="How we work together"
+            title="Collaborative by nature"
+            className="lg:col-span-5"
+          />
+          <div className="space-y-5 lg:col-span-7">
+            {teamIntro.collaborative.map((p) => (
+              <p key={p} className="text-lead text-ink/85">
+                {p}
+              </p>
+            ))}
+            <div className="flex flex-wrap gap-x-8">
+              <TextLink href="/team">Meet the team</TextLink>
+              <TextLink href="/contact">Start a conversation</TextLink>
+            </div>
           </div>
         </div>
       </section>

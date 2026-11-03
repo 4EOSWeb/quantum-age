@@ -17,31 +17,51 @@ function withEmailLink(text: string) {
   ));
 }
 
-export function LegalPage({ title, blocks, sourcePath }: { title: string; blocks: LegalBlock[]; sourcePath: string }) {
+export function LegalPage({
+  title,
+  blocks,
+  effectiveDate,
+  notice,
+}: {
+  title: string;
+  blocks: LegalBlock[];
+  effectiveDate?: string;
+  notice: { title: string; body: React.ReactNode };
+}) {
   return (
     <>
-      <PageHero eyebrow="Legal" title={title} />
+      <PageHero
+        eyebrow="Legal"
+        title={title}
+        lead={effectiveDate ? <p>Effective {effectiveDate}</p> : undefined}
+      />
       <section className="section-sm">
         <div className="container-page grid gap-12 lg:grid-cols-12">
           <div className="max-w-[68ch] lg:col-span-8">
             {blocks.map((b, i) => (
-              <div key={i} className={i > 0 ? "mt-10" : undefined}>
+              <div key={b.heading ?? b.paragraphs[0]} className={i > 0 ? "mt-10" : undefined}>
                 {b.heading && <h2 className="text-h3 mb-3">{b.heading}</h2>}
                 {b.paragraphs.map((p) => (
-                  <p key={p} className="text-lg leading-relaxed text-ink/90">
+                  <p key={p} className="mt-3 text-lg leading-relaxed text-ink/90 first:mt-0">
                     {withEmailLink(p)}
                   </p>
                 ))}
+                {b.items && (
+                  <ul className="mt-3 list-disc space-y-2 pl-5 text-lg leading-relaxed text-ink/90">
+                    {b.items.map((item) => (
+                      <li key={item}>{withEmailLink(item)}</li>
+                    ))}
+                  </ul>
+                )}
               </div>
             ))}
           </div>
           <aside className="lg:col-span-4">
-            <Notice tone="info" title="Reproduced from the current website">
-              This text is copied word for word from quantum-age.com{sourcePath} as published on 6 October 2026. The
-              prototype does not change or extend it, and it has not been reviewed by counsel.
+            <Notice tone="info" title={notice.title}>
+              {notice.body}
             </Notice>
             <TextLink href="/prototype-notes#questions" className="mt-4">
-              Related stakeholder questions
+              Decisions and remaining questions
             </TextLink>
           </aside>
         </div>

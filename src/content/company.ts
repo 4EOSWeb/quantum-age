@@ -58,13 +58,6 @@ export const formula = {
 
 export const approach = {
   heroLead: "Helping you achieve your goals.",
-  definition: {
-    word: "col·lab·o·ra·tive",
-    pronunciation: "kəˈlabərətiv",
-    partOfSpeech: "adjective",
-    meaning:
-      "An endeavor that is creative in nature by sharing knowledge, learning and building consensus.",
-  },
   frameworkTitle: "Our three-level framework",
   frameworkLead: "Flexible solutions that meet you where you are",
   levels: [

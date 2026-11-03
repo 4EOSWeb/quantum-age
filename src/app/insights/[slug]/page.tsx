@@ -10,9 +10,10 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { CtaBand, TextLink } from "@/components/site/blocks";
+import { CtaBand, Notice, TextLink } from "@/components/site/blocks";
 import { ArticleFeature } from "@/components/site/article-item";
 import { ReadingProgress } from "@/components/motion/scroll-linked";
+import { isArchivedArticle } from "@/lib/article-archive";
 import { formatDate, getAllArticles, getArticle, getRelatedArticles } from "@/lib/insights";
 
 export function generateStaticParams() {
@@ -91,6 +92,12 @@ export default async function ArticlePage({ params }: PageProps<"/insights/[slug
                   </div>
                 )}
               </dl>
+              {isArchivedArticle(article) && (
+                <Notice tone="info" title="Archive" className="mt-8">
+                  Published in {article.date.slice(0, 4)}. Articles from 2013 through 2020, including COVID-19 era
+                  guidance, stay available and are labelled archive.
+                </Notice>
+              )}
             </div>
           </div>
         </header>

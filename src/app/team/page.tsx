@@ -42,7 +42,6 @@ export default function TeamPage() {
                   <h2 id={`${p.slug}-name`} className="text-h3">
                     {p.name}
                   </h2>
-                  {p.role && <p className="mt-1 font-semibold text-plum">{p.role}</p>}
                   <ul className="mt-4 space-y-2 text-[0.98rem] text-ink/85">
                     {p.highlights.map((h) => (
                       <li key={h} className="flex gap-3">
